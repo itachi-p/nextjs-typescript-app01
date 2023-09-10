@@ -3,27 +3,18 @@
 
 <body>
     <div id="app"></div>
-    <!-- プレーンなJavaScriptでDOMを更新するのは、非常に冗長。
-    id="app"のdiv要素にh1要素を追加するだけで以下のようになる。 -->
-    <script type="text/javascript">
 
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- 素のJavaScriptで直接DOMを操作する代わりに、react-dom固有のメソッドで指示する -->
+    <!-- ブラウザはJSXを解釈できないので、Babelを使ってJSXをJavaScriptに変換する -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- 変換するコードがJSXであることをBabelに伝えるために、type="text/jsx"を指定する -->
+    <script type="text/jsx">
         const app = document.getElementById('app');
-
-        // Create a new H1 element
-        const header = document.createElement('h1');
-
-        // Create a new text node for the H1 element
-        const headercontent = document.createTextNode(
-            'Develop. Preview. Ship. 🚀',
-        );
-
-        // Append the text to the H1 element
-        header.appendChild(headercontent);
-
-        // Place the H1 element inside the div#app
-        app.appendChild(header);
+        ReactDOM.render(<h1>Develop. Preview. Ship. 🚀</h1>, app);
     </script>
-    <!-- 直にH1タグを書けば1行のところを、scriptタグ含め最低でも7行要した -->
 
 </body>
 
