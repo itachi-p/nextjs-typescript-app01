@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="app"></div>
+    <!-- プレーンなJavaScriptでDOMを更新するのは、非常に冗長。
+    id="app"のdiv要素にh1要素を追加するだけで以下のようになる。 -->
+    <script type="text/javascript">
+
+        const app = document.getElementById('app');
+
+        // Create a new H1 element
+        const header = document.createElement('h1');
+
+        // Create a new text node for the H1 element
+        const headercontent = document.createTextNode(
+            'Develop. Preview. Ship. 🚀',
+        );
+
+        // Append the text to the H1 element
+        header.appendChild(headercontent);
+
+        // Place the H1 element inside the div#app
+        app.appendChild(header);
+    </script>
+    <!-- 直にH1タグを書けば1行のところを、scriptタグ含め最低でも7行要した -->
+
+</body>
+
+</html>
